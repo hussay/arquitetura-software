@@ -19,6 +19,9 @@ import {
 } from "@material-ui/core";
 import CardBody from "../../components/Card/CardBody";
 import imageServer from "../../assets/img/server.png";
+import imageBd from "../../assets/img/bd.png";
+import SettingsApplicationsOutlinedIcon from '@material-ui/icons/SettingsApplicationsOutlined';
+import PublicOutlinedIcon from '@material-ui/icons/PublicOutlined';
 
 const useStyles = makeStyles(styles);
 
@@ -194,13 +197,19 @@ export default function SystemPage() {
       </GridContainer>
       <GridContainer>
         {serverFiltered.map((prop, key) => {
-          let corIcon = prop.overhead === true ? "blue" : "red";
+          let corIcon = prop.overhead === true ? "#004691" : "#B00020";
           let typeIcon =
-            prop.camada.title === "aplicação"
-              ? "settings"
-              : prop.camada.title === "banco de dados"
-              ? "storage"
-              : "sync";
+            prop.camada.title === "Aplicação"
+              ? <SettingsApplicationsOutlinedIcon className={classes.iconServer} />
+              : prop.camada.title === "Banco de Dados"
+              ? <img
+                  src={imageBd}
+                  alt="BD"
+                  height="20"
+                  width="18"
+                  style={{marginLeft:"5px"}}
+                />
+              : <PublicOutlinedIcon className={classes.iconServer}  />;
           return (
             <GridItem xs={12} sm={4} md={3} key={`gridServer${key}`}>
               <Card>
@@ -216,16 +225,16 @@ export default function SystemPage() {
                         className={classes.avatarStatusOnline}
                         // } avatar-status-lg`}
                       ></span> */}
-                    <Icon
+                    <span
                       style={{ backgroundColor: corIcon }}
-                      className={classes.serverAplicacao}
+                      className={classes.serverCamadas}
                     >
                       {typeIcon}
-                    </Icon>
+                    </span>
                   </div>
                   <div className={classes.dataServerCss}>
                     <div display="flex">
-                      <div>Aplicação:</div>
+                      <div>{prop.camada.title}</div>
                       <div>
                         <strong>{prop.nome}</strong>
                       </div>

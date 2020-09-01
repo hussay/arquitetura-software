@@ -9,14 +9,13 @@ const systemPageStyle = {
     width: "90px",
     height: "105px",
   },
-  serverAplicacao: {
+  serverCamadas: {
     borderRadius: "50%",
     position: "absolute",
     right: "0",
     bottom: "0",
-    width: "25px",
-    height: "25px",
-    borderWidth: "2px",
+    width: "28px",
+    height: "28px",
   },
   dataServerCss: {
     whiteSpace: "nowrap",
@@ -52,6 +51,10 @@ const systemPageStyle = {
   formControl: {
     margin: "10px",
     minWidth: 120,
+  },
+  iconServer: {
+    width: "28px",
+    marginTop: "1px",
   },
 };
 
